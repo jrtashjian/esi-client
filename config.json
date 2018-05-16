@@ -1,0 +1,9 @@
+{
+    "invokerPackage": "EsiClient",
+    "modelPackage": "EsiClient\\Model",
+    "apiPackage": "EsiClient\\Api",
+    "packagePath": ".",
+    "srcBasePath": "src",
+    "composerProjectName": "esi-client",
+    "composerVendorName": "jrtashjian"
+}
