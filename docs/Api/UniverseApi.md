@@ -1,6 +1,6 @@
 # EsiClient\UniverseApi
 
-All URIs are relative to *https://esi.evetech.net/*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,8 @@ Method | HTTP request | Description
 [**getUniverseTypes**](UniverseApi.md#getUniverseTypes) | **GET** /v1/universe/types/ | Get types
 [**getUniverseTypesTypeId**](UniverseApi.md#getUniverseTypesTypeId) | **GET** /v3/universe/types/{type_id}/ | Get type information
 [**postUniverseIds**](UniverseApi.md#postUniverseIds) | **POST** /v1/universe/ids/ | Bulk names to IDs
-[**postUniverseNames**](UniverseApi.md#postUniverseNames) | **POST** /v2/universe/names/ | Get names and categories for a set of IDs
+[**postUniverseNames**](UniverseApi.md#postUniverseNames) | **POST** /v3/universe/names/ | Get names and categories for a set of IDs
+
 
 # **getUniverseAncestries**
 > object[] getUniverseAncestries($accept_language, $datasource, $if_none_match, $language)
@@ -47,15 +48,15 @@ Get all character ancestries  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseAncestries($accept_language, $datasource, $if_none_match, $language);
@@ -70,10 +71,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
@@ -85,13 +86,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseAsteroidBeltsAsteroidBeltId**
-> object getUniverseAsteroidBeltsAsteroidBeltId($asteroid_belt_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseAsteroidBeltsAsteroidBeltIdOk getUniverseAsteroidBeltsAsteroidBeltId($asteroid_belt_id, $datasource, $if_none_match)
 
 Get asteroid belt information
 
@@ -102,13 +103,13 @@ Get information on an asteroid belt  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $asteroid_belt_id = 56; // int | asteroid_belt_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -124,13 +125,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asteroid_belt_id** | [**int**](../Model/.md)| asteroid_belt_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **asteroid_belt_id** | **int**| asteroid_belt_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseAsteroidBeltsAsteroidBeltIdOk**](../Model/GetUniverseAsteroidBeltsAsteroidBeltIdOk.md)
 
 ### Authorization
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -155,15 +156,15 @@ Get a list of bloodlines  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseBloodlines($accept_language, $datasource, $if_none_match, $language);
@@ -178,10 +179,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
@@ -193,7 +194,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -210,12 +211,12 @@ Get a list of item categories  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -231,8 +232,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -244,13 +245,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseCategoriesCategoryId**
-> object getUniverseCategoriesCategoryId($category_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseCategoriesCategoryIdOk getUniverseCategoriesCategoryId($category_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get item category information
 
@@ -261,16 +262,16 @@ Get information of an item category  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $category_id = 56; // int | An Eve item category ID
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseCategoriesCategoryId($category_id, $accept_language, $datasource, $if_none_match, $language);
@@ -285,15 +286,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category_id** | [**int**](../Model/.md)| An Eve item category ID |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **category_id** | **int**| An Eve item category ID |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseCategoriesCategoryIdOk**](../Model/GetUniverseCategoriesCategoryIdOk.md)
 
 ### Authorization
 
@@ -301,7 +302,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -318,12 +319,12 @@ Get a list of constellations  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -339,8 +340,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -352,13 +353,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseConstellationsConstellationId**
-> object getUniverseConstellationsConstellationId($constellation_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseConstellationsConstellationIdOk getUniverseConstellationsConstellationId($constellation_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get constellation information
 
@@ -369,16 +370,16 @@ Get information on a constellation  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $constellation_id = 56; // int | constellation_id integer
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseConstellationsConstellationId($constellation_id, $accept_language, $datasource, $if_none_match, $language);
@@ -393,15 +394,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **constellation_id** | [**int**](../Model/.md)| constellation_id integer |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **constellation_id** | **int**| constellation_id integer |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseConstellationsConstellationIdOk**](../Model/GetUniverseConstellationsConstellationIdOk.md)
 
 ### Authorization
 
@@ -409,7 +410,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -426,15 +427,15 @@ Get a list of factions  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseFactions($accept_language, $datasource, $if_none_match, $language);
@@ -449,10 +450,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
@@ -464,7 +465,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -481,12 +482,12 @@ Get a list of graphics  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -502,8 +503,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -515,13 +516,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseGraphicsGraphicId**
-> object getUniverseGraphicsGraphicId($graphic_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseGraphicsGraphicIdOk getUniverseGraphicsGraphicId($graphic_id, $datasource, $if_none_match)
 
 Get graphic information
 
@@ -532,13 +533,13 @@ Get information on a graphic  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $graphic_id = 56; // int | graphic_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -554,13 +555,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **graphic_id** | [**int**](../Model/.md)| graphic_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **graphic_id** | **int**| graphic_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseGraphicsGraphicIdOk**](../Model/GetUniverseGraphicsGraphicIdOk.md)
 
 ### Authorization
 
@@ -568,7 +569,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -585,14 +586,14 @@ Get a list of item groups  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 
 try {
     $result = $apiInstance->getUniverseGroups($datasource, $if_none_match, $page);
@@ -607,9 +608,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
 
 ### Return type
 
@@ -621,13 +622,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseGroupsGroupId**
-> object getUniverseGroupsGroupId($group_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseGroupsGroupIdOk getUniverseGroupsGroupId($group_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get item group information
 
@@ -638,16 +639,16 @@ Get information on an item group  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $group_id = 56; // int | An Eve item group ID
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseGroupsGroupId($group_id, $accept_language, $datasource, $if_none_match, $language);
@@ -662,15 +663,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | [**int**](../Model/.md)| An Eve item group ID |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **group_id** | **int**| An Eve item group ID |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseGroupsGroupIdOk**](../Model/GetUniverseGroupsGroupIdOk.md)
 
 ### Authorization
 
@@ -678,13 +679,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseMoonsMoonId**
-> object getUniverseMoonsMoonId($moon_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseMoonsMoonIdOk getUniverseMoonsMoonId($moon_id, $datasource, $if_none_match)
 
 Get moon information
 
@@ -695,13 +696,13 @@ Get information on a moon  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $moon_id = 56; // int | moon_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -717,13 +718,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moon_id** | [**int**](../Model/.md)| moon_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **moon_id** | **int**| moon_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseMoonsMoonIdOk**](../Model/GetUniverseMoonsMoonIdOk.md)
 
 ### Authorization
 
@@ -731,13 +732,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniversePlanetsPlanetId**
-> object getUniversePlanetsPlanetId($planet_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniversePlanetsPlanetIdOk getUniversePlanetsPlanetId($planet_id, $datasource, $if_none_match)
 
 Get planet information
 
@@ -748,13 +749,13 @@ Get information on a planet  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $planet_id = 56; // int | planet_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -770,13 +771,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **planet_id** | [**int**](../Model/.md)| planet_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **planet_id** | **int**| planet_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniversePlanetsPlanetIdOk**](../Model/GetUniversePlanetsPlanetIdOk.md)
 
 ### Authorization
 
@@ -784,7 +785,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -801,15 +802,15 @@ Get a list of character races  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseRaces($accept_language, $datasource, $if_none_match, $language);
@@ -824,10 +825,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
@@ -839,7 +840,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -856,12 +857,12 @@ Get a list of regions  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -877,8 +878,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -890,13 +891,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseRegionsRegionId**
-> object getUniverseRegionsRegionId($region_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseRegionsRegionIdOk getUniverseRegionsRegionId($region_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get region information
 
@@ -907,16 +908,16 @@ Get information on a region  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $region_id = 56; // int | region_id integer
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseRegionsRegionId($region_id, $accept_language, $datasource, $if_none_match, $language);
@@ -931,15 +932,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region_id** | [**int**](../Model/.md)| region_id integer |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **region_id** | **int**| region_id integer |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseRegionsRegionIdOk**](../Model/GetUniverseRegionsRegionIdOk.md)
 
 ### Authorization
 
@@ -947,13 +948,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseStargatesStargateId**
-> object getUniverseStargatesStargateId($stargate_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseStargatesStargateIdOk getUniverseStargatesStargateId($stargate_id, $datasource, $if_none_match)
 
 Get stargate information
 
@@ -964,13 +965,13 @@ Get information on a stargate  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $stargate_id = 56; // int | stargate_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -986,13 +987,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stargate_id** | [**int**](../Model/.md)| stargate_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **stargate_id** | **int**| stargate_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseStargatesStargateIdOk**](../Model/GetUniverseStargatesStargateIdOk.md)
 
 ### Authorization
 
@@ -1000,13 +1001,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseStarsStarId**
-> object getUniverseStarsStarId($star_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseStarsStarIdOk getUniverseStarsStarId($star_id, $datasource, $if_none_match)
 
 Get star information
 
@@ -1017,13 +1018,13 @@ Get information on a star  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $star_id = 56; // int | star_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -1039,13 +1040,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **star_id** | [**int**](../Model/.md)| star_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **star_id** | **int**| star_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseStarsStarIdOk**](../Model/GetUniverseStarsStarIdOk.md)
 
 ### Authorization
 
@@ -1053,13 +1054,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseStationsStationId**
-> object getUniverseStationsStationId($station_id, $datasource, $if_none_match)
+> \EsiClient\EsiClient\Model\GetUniverseStationsStationIdOk getUniverseStationsStationId($station_id, $datasource, $if_none_match)
 
 Get station information
 
@@ -1070,13 +1071,13 @@ Get information on a station  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $station_id = 56; // int | station_id integer
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -1092,13 +1093,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **station_id** | [**int**](../Model/.md)| station_id integer |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **station_id** | **int**| station_id integer |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseStationsStationIdOk**](../Model/GetUniverseStationsStationIdOk.md)
 
 ### Authorization
 
@@ -1106,7 +1107,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1123,12 +1124,12 @@ List all public structures  ---  This route is cached for up to 3600 seconds
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $filter = "filter_example"; // string | Only list public structures that have this service online
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
@@ -1145,9 +1146,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **filter** | [**string**](../Model/.md)| Only list public structures that have this service online | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **filter** | **string**| Only list public structures that have this service online | [optional]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -1159,13 +1160,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseStructuresStructureId**
-> object getUniverseStructuresStructureId($structure_id, $datasource, $if_none_match, $token)
+> \EsiClient\EsiClient\Model\GetUniverseStructuresStructureIdOk getUniverseStructuresStructureId($structure_id, $datasource, $if_none_match, $token)
 
 Get structure information
 
@@ -1179,14 +1180,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$structure_id = 56; // int | An Eve structure ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$structure_id = 789; // int | An Eve structure ID
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -1203,14 +1204,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **structure_id** | [**int**](../Model/.md)| An Eve structure ID |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **structure_id** | **int**| An Eve structure ID |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseStructuresStructureIdOk**](../Model/GetUniverseStructuresStructureIdOk.md)
 
 ### Authorization
 
@@ -1218,7 +1219,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1235,12 +1236,12 @@ Get the number of jumps in solar systems within the last hour ending at the time
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -1256,8 +1257,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -1269,7 +1270,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1286,12 +1287,12 @@ Get the number of ship, pod and NPC kills per solar system within the last hour 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -1307,8 +1308,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -1320,7 +1321,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1337,12 +1338,12 @@ Get a list of solar systems  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 
 try {
@@ -1358,8 +1359,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
 
 ### Return type
 
@@ -1371,13 +1372,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseSystemsSystemId**
-> object getUniverseSystemsSystemId($system_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseSystemsSystemIdOk getUniverseSystemsSystemId($system_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get solar system information
 
@@ -1388,16 +1389,16 @@ Get information on a solar system.  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $system_id = 56; // int | system_id integer
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseSystemsSystemId($system_id, $accept_language, $datasource, $if_none_match, $language);
@@ -1412,15 +1413,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **system_id** | [**int**](../Model/.md)| system_id integer |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **system_id** | **int**| system_id integer |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseSystemsSystemIdOk**](../Model/GetUniverseSystemsSystemIdOk.md)
 
 ### Authorization
 
@@ -1428,7 +1429,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1445,14 +1446,14 @@ Get a list of type ids  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 
 try {
     $result = $apiInstance->getUniverseTypes($datasource, $if_none_match, $page);
@@ -1467,9 +1468,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
 
 ### Return type
 
@@ -1481,13 +1482,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUniverseTypesTypeId**
-> object getUniverseTypesTypeId($type_id, $accept_language, $datasource, $if_none_match, $language)
+> \EsiClient\EsiClient\Model\GetUniverseTypesTypeIdOk getUniverseTypesTypeId($type_id, $accept_language, $datasource, $if_none_match, $language)
 
 Get type information
 
@@ -1498,16 +1499,16 @@ Get information on a type  ---  This route expires daily at 11:05
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $type_id = 56; // int | An Eve item type ID
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
     $result = $apiInstance->getUniverseTypesTypeId($type_id, $accept_language, $datasource, $if_none_match, $language);
@@ -1522,15 +1523,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_id** | [**int**](../Model/.md)| An Eve item type ID |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **type_id** | **int**| An Eve item type ID |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetUniverseTypesTypeIdOk**](../Model/GetUniverseTypesTypeIdOk.md)
 
 ### Authorization
 
@@ -1538,13 +1539,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUniverseIds**
-> object postUniverseIds($body$accept_language, $datasource, $language)
+> \EsiClient\EsiClient\Model\PostUniverseIdsOk postUniverseIds($names, $accept_language, $datasource, $language)
 
 Bulk names to IDs
 
@@ -1555,18 +1556,18 @@ Resolve a set of names to IDs in the following categories: agents, alliances, ch
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = array("body_example"); // string[] | The names to resolve
-$accept_language = "accept_language_example"; // string | Language to use in the response
-$datasource = "datasource_example"; // string | The server name you would like data from
-$language = "language_example"; // string | Language to use in the response, takes precedence over Accept-Language
+$names = array(new \EsiClient\EsiClient\Model\string[]()); // string[] | The names to resolve
+$accept_language = "en-us"; // string | Language to use in the response
+$datasource = "tranquility"; // string | The server name you would like data from
+$language = "en-us"; // string | Language to use in the response, takes precedence over Accept-Language
 
 try {
-    $result = $apiInstance->postUniverseIds($body$accept_language, $datasource, $language);
+    $result = $apiInstance->postUniverseIds($names, $accept_language, $datasource, $language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UniverseApi->postUniverseIds: ', $e->getMessage(), PHP_EOL;
@@ -1578,14 +1579,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**string[]**](../Model/string.md)| The names to resolve |
- **accept_language** | [**string**](../Model/.md)| Language to use in the response | [optional]
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **language** | [**string**](../Model/.md)| Language to use in the response, takes precedence over Accept-Language | [optional]
+ **names** | **string[]**| The names to resolve |
+ **accept_language** | **string**| Language to use in the response | [optional] [default to en-us]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **language** | **string**| Language to use in the response, takes precedence over Accept-Language | [optional] [default to en-us]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\PostUniverseIdsOk**](../Model/PostUniverseIdsOk.md)
 
 ### Authorization
 
@@ -1599,27 +1600,27 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUniverseNames**
-> object[] postUniverseNames($body$datasource)
+> object[] postUniverseNames($ids, $datasource)
 
 Get names and categories for a set of IDs
 
-Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types  ---  Warning: This route has an upgrade available  --- [Diff of the upcoming changes](https://esi.evetech.net/diff/latest/dev/#POST-/universe/names/)
+Resolve a set of IDs to names and categories. Supported ID's for resolving are: Characters, Corporations, Alliances, Stations, Solar Systems, Constellations, Regions, Types, Factions  ---
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\UniverseApi(
+$apiInstance = new EsiClient\Api\UniverseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = array(56); // int[] | The ids to resolve
-$datasource = "datasource_example"; // string | The server name you would like data from
+$ids = array(new \EsiClient\EsiClient\Model\int[]()); // int[] | The ids to resolve
+$datasource = "tranquility"; // string | The server name you would like data from
 
 try {
-    $result = $apiInstance->postUniverseNames($body$datasource);
+    $result = $apiInstance->postUniverseNames($ids, $datasource);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UniverseApi->postUniverseNames: ', $e->getMessage(), PHP_EOL;
@@ -1631,8 +1632,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**int[]**](../Model/int.md)| The ids to resolve |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
+ **ids** | **int[]**| The ids to resolve |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
 
 ### Return type
 

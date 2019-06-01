@@ -1,6 +1,6 @@
 # EsiClient\ContractsApi
 
-All URIs are relative to *https://esi.evetech.net/*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**getCorporationsCorporationIdContracts**](ContractsApi.md#getCorporationsCorporationIdContracts) | **GET** /v1/corporations/{corporation_id}/contracts/ | Get corporation contracts
 [**getCorporationsCorporationIdContractsContractIdBids**](ContractsApi.md#getCorporationsCorporationIdContractsContractIdBids) | **GET** /v1/corporations/{corporation_id}/contracts/{contract_id}/bids/ | Get corporation contract bids
 [**getCorporationsCorporationIdContractsContractIdItems**](ContractsApi.md#getCorporationsCorporationIdContractsContractIdItems) | **GET** /v1/corporations/{corporation_id}/contracts/{contract_id}/items/ | Get corporation contract items
+
 
 # **getCharactersCharacterIdContracts**
 > object[] getCharactersCharacterIdContracts($character_id, $datasource, $if_none_match, $page, $token)
@@ -29,16 +30,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
@@ -54,11 +55,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **character_id** | [**int**](../Model/.md)| An EVE character ID |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **character_id** | **int**| An EVE character ID |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -70,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -90,7 +91,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -98,7 +99,7 @@ $apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
 );
 $character_id = 56; // int | An EVE character ID
 $contract_id = 56; // int | ID of a contract
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -115,11 +116,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **character_id** | [**int**](../Model/.md)| An EVE character ID |
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **character_id** | **int**| An EVE character ID |
+ **contract_id** | **int**| ID of a contract |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -131,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -151,7 +152,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -159,7 +160,7 @@ $apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
 );
 $character_id = 56; // int | An EVE character ID
 $contract_id = 56; // int | ID of a contract
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -176,11 +177,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **character_id** | [**int**](../Model/.md)| An EVE character ID |
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **character_id** | **int**| An EVE character ID |
+ **contract_id** | **int**| ID of a contract |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -192,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -209,15 +210,15 @@ Lists bids on a public auction contract  ---  This route is cached for up to 300
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $contract_id = 56; // int | ID of a contract
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 
 try {
     $result = $apiInstance->getContractsPublicBidsContractId($contract_id, $datasource, $if_none_match, $page);
@@ -232,10 +233,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
+ **contract_id** | **int**| ID of a contract |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
 
 ### Return type
 
@@ -247,7 +248,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -264,15 +265,15 @@ Lists items of a public contract  ---  This route is cached for up to 3600 secon
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $contract_id = 56; // int | ID of a contract
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 
 try {
     $result = $apiInstance->getContractsPublicItemsContractId($contract_id, $datasource, $if_none_match, $page);
@@ -287,10 +288,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
+ **contract_id** | **int**| ID of a contract |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
 
 ### Return type
 
@@ -302,7 +303,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -319,15 +320,15 @@ Returns a paginated list of all public contracts in the given region  ---  This 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $region_id = 56; // int | An EVE region id
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 
 try {
     $result = $apiInstance->getContractsPublicRegionId($region_id, $datasource, $if_none_match, $page);
@@ -342,10 +343,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **region_id** | [**int**](../Model/.md)| An EVE region id |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
+ **region_id** | **int**| An EVE region id |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
 
 ### Return type
 
@@ -357,7 +358,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -377,16 +378,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $corporation_id = 56; // int | An EVE corporation ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
@@ -402,11 +403,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **corporation_id** | [**int**](../Model/.md)| An EVE corporation ID |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **corporation_id** | **int**| An EVE corporation ID |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -418,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -438,7 +439,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -446,9 +447,9 @@ $apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
 );
 $contract_id = 56; // int | ID of a contract
 $corporation_id = 56; // int | An EVE corporation ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 56; // int | Which page of results to return
+$page = 1; // int | Which page of results to return
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
@@ -464,12 +465,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **corporation_id** | [**int**](../Model/.md)| An EVE corporation ID |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | [**int**](../Model/.md)| Which page of results to return | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **contract_id** | **int**| ID of a contract |
+ **corporation_id** | **int**| An EVE corporation ID |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **page** | **int**| Which page of results to return | [optional] [default to 1]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -481,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -501,7 +502,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
+$apiInstance = new EsiClient\Api\ContractsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -509,7 +510,7 @@ $apiInstance = new EsiClient\EsiClient\Api\ContractsApi(
 );
 $contract_id = 56; // int | ID of a contract
 $corporation_id = 56; // int | An EVE corporation ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -526,11 +527,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | [**int**](../Model/.md)| ID of a contract |
- **corporation_id** | [**int**](../Model/.md)| An EVE corporation ID |
- **datasource** | [**string**](../Model/.md)| The server name you would like data from | [optional]
- **if_none_match** | [**string**](../Model/.md)| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **token** | [**string**](../Model/.md)| Access token to use if unable to set a header | [optional]
+ **contract_id** | **int**| ID of a contract |
+ **corporation_id** | **int**| An EVE corporation ID |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
+ **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
@@ -542,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
