@@ -1,16 +1,15 @@
 # EsiClient\WalletApi
 
-All URIs are relative to *https://esi.evetech.net*
+All URIs are relative to *https://esi.evetech.net/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCharactersCharacterIdWallet**](WalletApi.md#getCharactersCharacterIdWallet) | **GET** /v1/characters/{character_id}/wallet/ | Get a character&#39;s wallet balance
-[**getCharactersCharacterIdWalletJournal**](WalletApi.md#getCharactersCharacterIdWalletJournal) | **GET** /v6/characters/{character_id}/wallet/journal/ | Get character wallet journal
-[**getCharactersCharacterIdWalletTransactions**](WalletApi.md#getCharactersCharacterIdWalletTransactions) | **GET** /v1/characters/{character_id}/wallet/transactions/ | Get wallet transactions
-[**getCorporationsCorporationIdWallets**](WalletApi.md#getCorporationsCorporationIdWallets) | **GET** /v1/corporations/{corporation_id}/wallets/ | Returns a corporation&#39;s wallet balance
-[**getCorporationsCorporationIdWalletsDivisionJournal**](WalletApi.md#getCorporationsCorporationIdWalletsDivisionJournal) | **GET** /v4/corporations/{corporation_id}/wallets/{division}/journal/ | Get corporation wallet journal
-[**getCorporationsCorporationIdWalletsDivisionTransactions**](WalletApi.md#getCorporationsCorporationIdWalletsDivisionTransactions) | **GET** /v1/corporations/{corporation_id}/wallets/{division}/transactions/ | Get corporation wallet transactions
-
+[**getCharactersCharacterIdWallet**](WalletApi.md#getcharacterscharacteridwallet) | **GET** /v1/characters/{character_id}/wallet/ | Get a character&#x27;s wallet balance
+[**getCharactersCharacterIdWalletJournal**](WalletApi.md#getcharacterscharacteridwalletjournal) | **GET** /v6/characters/{character_id}/wallet/journal/ | Get character wallet journal
+[**getCharactersCharacterIdWalletTransactions**](WalletApi.md#getcharacterscharacteridwallettransactions) | **GET** /v1/characters/{character_id}/wallet/transactions/ | Get wallet transactions
+[**getCorporationsCorporationIdWallets**](WalletApi.md#getcorporationscorporationidwallets) | **GET** /v1/corporations/{corporation_id}/wallets/ | Returns a corporation&#x27;s wallet balance
+[**getCorporationsCorporationIdWalletsDivisionJournal**](WalletApi.md#getcorporationscorporationidwalletsdivisionjournal) | **GET** /v4/corporations/{corporation_id}/wallets/{division}/journal/ | Get corporation wallet journal
+[**getCorporationsCorporationIdWalletsDivisionTransactions**](WalletApi.md#getcorporationscorporationidwalletsdivisiontransactions) | **GET** /v1/corporations/{corporation_id}/wallets/{division}/transactions/ | Get corporation wallet transactions
 
 # **getCharactersCharacterIdWallet**
 > double getCharactersCharacterIdWallet($character_id, $datasource, $if_none_match, $token)
@@ -27,14 +26,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -52,7 +51,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
@@ -66,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -86,16 +85,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 1; // int | Which page of results to return
+$page = 56; // int | Which page of results to return
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
@@ -112,9 +111,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | **int**| Which page of results to return | [optional] [default to 1]
+ **page** | **int**| Which page of results to return | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
@@ -127,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -147,14 +146,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $from_id = 789; // int | Only show transactions happened before the one referenced by this id
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
@@ -173,7 +172,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **from_id** | **int**| Only show transactions happened before the one referenced by this id | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
@@ -188,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -208,14 +207,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $corporation_id = 56; // int | An EVE corporation ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -233,7 +232,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **corporation_id** | **int**| An EVE corporation ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
@@ -247,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -267,7 +266,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -275,9 +274,9 @@ $apiInstance = new EsiClient\Api\WalletApi(
 );
 $corporation_id = 56; // int | An EVE corporation ID
 $division = 56; // int | Wallet key of the division to fetch journals from
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
-$page = 1; // int | Which page of results to return
+$page = 56; // int | Which page of results to return
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
@@ -295,9 +294,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **corporation_id** | **int**| An EVE corporation ID |
  **division** | **int**| Wallet key of the division to fetch journals from |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
- **page** | **int**| Which page of results to return | [optional] [default to 1]
+ **page** | **int**| Which page of results to return | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
@@ -310,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -330,7 +329,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\WalletApi(
+$apiInstance = new EsiClient\EsiClient\Api\WalletApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -338,7 +337,7 @@ $apiInstance = new EsiClient\Api\WalletApi(
 );
 $corporation_id = 56; // int | An EVE corporation ID
 $division = 56; // int | Wallet key of the division to fetch journals from
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $from_id = 789; // int | Only show journal entries happened before the transaction referenced by this id
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
@@ -358,7 +357,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **corporation_id** | **int**| An EVE corporation ID |
  **division** | **int**| Wallet key of the division to fetch journals from |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **from_id** | **int**| Only show journal entries happened before the transaction referenced by this id | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
@@ -373,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

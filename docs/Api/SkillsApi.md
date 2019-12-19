@@ -1,16 +1,15 @@
 # EsiClient\SkillsApi
 
-All URIs are relative to *https://esi.evetech.net*
+All URIs are relative to *https://esi.evetech.net/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCharactersCharacterIdAttributes**](SkillsApi.md#getCharactersCharacterIdAttributes) | **GET** /v1/characters/{character_id}/attributes/ | Get character attributes
-[**getCharactersCharacterIdSkillqueue**](SkillsApi.md#getCharactersCharacterIdSkillqueue) | **GET** /v2/characters/{character_id}/skillqueue/ | Get character&#39;s skill queue
-[**getCharactersCharacterIdSkills**](SkillsApi.md#getCharactersCharacterIdSkills) | **GET** /v4/characters/{character_id}/skills/ | Get character skills
-
+[**getCharactersCharacterIdAttributes**](SkillsApi.md#getcharacterscharacteridattributes) | **GET** /v1/characters/{character_id}/attributes/ | Get character attributes
+[**getCharactersCharacterIdSkillqueue**](SkillsApi.md#getcharacterscharacteridskillqueue) | **GET** /v2/characters/{character_id}/skillqueue/ | Get character&#x27;s skill queue
+[**getCharactersCharacterIdSkills**](SkillsApi.md#getcharacterscharacteridskills) | **GET** /v4/characters/{character_id}/skills/ | Get character skills
 
 # **getCharactersCharacterIdAttributes**
-> \EsiClient\EsiClient\Model\GetCharactersCharacterIdAttributesOk getCharactersCharacterIdAttributes($character_id, $datasource, $if_none_match, $token)
+> object getCharactersCharacterIdAttributes($character_id, $datasource, $if_none_match, $token)
 
 Get character attributes
 
@@ -24,14 +23,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\SkillsApi(
+$apiInstance = new EsiClient\EsiClient\Api\SkillsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -49,13 +48,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-[**\EsiClient\EsiClient\Model\GetCharactersCharacterIdAttributesOk**](../Model/GetCharactersCharacterIdAttributesOk.md)
+**object**
 
 ### Authorization
 
@@ -63,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -83,14 +82,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\SkillsApi(
+$apiInstance = new EsiClient\EsiClient\Api\SkillsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -108,7 +107,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
@@ -122,13 +121,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCharactersCharacterIdSkills**
-> \EsiClient\EsiClient\Model\GetCharactersCharacterIdSkillsOk getCharactersCharacterIdSkills($character_id, $datasource, $if_none_match, $token)
+> object getCharactersCharacterIdSkills($character_id, $datasource, $if_none_match, $token)
 
 Get character skills
 
@@ -142,14 +141,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\Api\SkillsApi(
+$apiInstance = new EsiClient\EsiClient\Api\SkillsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "tranquility"; // string | The server name you would like data from
+$datasource = "datasource_example"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -167,13 +166,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
+ **datasource** | **string**| The server name you would like data from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-[**\EsiClient\EsiClient\Model\GetCharactersCharacterIdSkillsOk**](../Model/GetCharactersCharacterIdSkillsOk.md)
+**object**
 
 ### Authorization
 
@@ -181,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
