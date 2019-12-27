@@ -1,16 +1,17 @@
 # EsiClient\CalendarApi
 
-All URIs are relative to *https://esi.evetech.net/*
+All URIs are relative to *https://esi.evetech.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCharactersCharacterIdCalendar**](CalendarApi.md#getcharacterscharacteridcalendar) | **GET** /v1/characters/{character_id}/calendar/ | List calendar event summaries
-[**getCharactersCharacterIdCalendarEventId**](CalendarApi.md#getcharacterscharacteridcalendareventid) | **GET** /v3/characters/{character_id}/calendar/{event_id}/ | Get an event
-[**getCharactersCharacterIdCalendarEventIdAttendees**](CalendarApi.md#getcharacterscharacteridcalendareventidattendees) | **GET** /v1/characters/{character_id}/calendar/{event_id}/attendees/ | Get attendees
-[**putCharactersCharacterIdCalendarEventId**](CalendarApi.md#putcharacterscharacteridcalendareventid) | **PUT** /v3/characters/{character_id}/calendar/{event_id}/ | Respond to an event
+[**getCharactersCharacterIdCalendar**](CalendarApi.md#getCharactersCharacterIdCalendar) | **GET** /v1/characters/{character_id}/calendar/ | List calendar event summaries
+[**getCharactersCharacterIdCalendarEventId**](CalendarApi.md#getCharactersCharacterIdCalendarEventId) | **GET** /v3/characters/{character_id}/calendar/{event_id}/ | Get an event
+[**getCharactersCharacterIdCalendarEventIdAttendees**](CalendarApi.md#getCharactersCharacterIdCalendarEventIdAttendees) | **GET** /v1/characters/{character_id}/calendar/{event_id}/attendees/ | Get attendees
+[**putCharactersCharacterIdCalendarEventId**](CalendarApi.md#putCharactersCharacterIdCalendarEventId) | **PUT** /v3/characters/{character_id}/calendar/{event_id}/ | Respond to an event
+
 
 # **getCharactersCharacterIdCalendar**
-> object[] getCharactersCharacterIdCalendar($character_id, $datasource, $from_event, $if_none_match, $token)
+> \EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendar200Ok[] getCharactersCharacterIdCalendar($character_id, $datasource, $from_event, $if_none_match, $token)
 
 List calendar event summaries
 
@@ -24,14 +25,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
+$apiInstance = new EsiClient\Api\CalendarApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $character_id = 56; // int | An EVE character ID
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $from_event = 56; // int | The event ID to retrieve events from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
@@ -50,14 +51,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
- **datasource** | **string**| The server name you would like data from | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
  **from_event** | **int**| The event ID to retrieve events from | [optional]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-**object[]**
+[**\EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendar200Ok[]**](../Model/GetCharactersCharacterIdCalendar200Ok.md)
 
 ### Authorization
 
@@ -65,13 +66,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCharactersCharacterIdCalendarEventId**
-> object getCharactersCharacterIdCalendarEventId($character_id, $event_id, $datasource, $if_none_match, $token)
+> \EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendarEventIdOk getCharactersCharacterIdCalendarEventId($character_id, $event_id, $datasource, $if_none_match, $token)
 
 Get an event
 
@@ -85,7 +86,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
+$apiInstance = new EsiClient\Api\CalendarApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -93,7 +94,7 @@ $apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
 );
 $character_id = 56; // int | An EVE character ID
 $event_id = 56; // int | The id of the event requested
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -112,13 +113,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
  **event_id** | **int**| The id of the event requested |
- **datasource** | **string**| The server name you would like data from | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-**object**
+[**\EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendarEventIdOk**](../Model/GetCharactersCharacterIdCalendarEventIdOk.md)
 
 ### Authorization
 
@@ -126,13 +127,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCharactersCharacterIdCalendarEventIdAttendees**
-> object[] getCharactersCharacterIdCalendarEventIdAttendees($character_id, $event_id, $datasource, $if_none_match, $token)
+> \EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendarEventIdAttendees200Ok[] getCharactersCharacterIdCalendarEventIdAttendees($character_id, $event_id, $datasource, $if_none_match, $token)
 
 Get attendees
 
@@ -146,7 +147,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
+$apiInstance = new EsiClient\Api\CalendarApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -154,7 +155,7 @@ $apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
 );
 $character_id = 56; // int | An EVE character ID
 $event_id = 56; // int | The id of the event requested
-$datasource = "datasource_example"; // string | The server name you would like data from
+$datasource = "tranquility"; // string | The server name you would like data from
 $if_none_match = "if_none_match_example"; // string | ETag from a previous request. A 304 will be returned if this matches the current ETag
 $token = "token_example"; // string | Access token to use if unable to set a header
 
@@ -173,13 +174,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| An EVE character ID |
  **event_id** | **int**| The id of the event requested |
- **datasource** | **string**| The server name you would like data from | [optional]
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
  **if_none_match** | **string**| ETag from a previous request. A 304 will be returned if this matches the current ETag | [optional]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
 
-**object[]**
+[**\EsiClient\EsiClient\Model\GetCharactersCharacterIdCalendarEventIdAttendees200Ok[]**](../Model/GetCharactersCharacterIdCalendarEventIdAttendees200Ok.md)
 
 ### Authorization
 
@@ -187,13 +188,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putCharactersCharacterIdCalendarEventId**
-> putCharactersCharacterIdCalendarEventId($body, $character_id, $event_id, $datasource, $token)
+> putCharactersCharacterIdCalendarEventId($character_id, $event_id, $response, $datasource, $token)
 
 Respond to an event
 
@@ -207,20 +208,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: evesso
 $config = EsiClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new EsiClient\EsiClient\Api\CalendarApi(
+$apiInstance = new EsiClient\Api\CalendarApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \stdClass; // object | The response value to set, overriding current value
 $character_id = 56; // int | An EVE character ID
 $event_id = 56; // int | The ID of the event requested
-$datasource = "datasource_example"; // string | The server name you would like data from
+$response = new \EsiClient\EsiClient\Model\PutCharactersCharacterIdCalendarEventIdResponse(); // \EsiClient\EsiClient\Model\PutCharactersCharacterIdCalendarEventIdResponse | The response value to set, overriding current value
+$datasource = "tranquility"; // string | The server name you would like data from
 $token = "token_example"; // string | Access token to use if unable to set a header
 
 try {
-    $apiInstance->putCharactersCharacterIdCalendarEventId($body, $character_id, $event_id, $datasource, $token);
+    $apiInstance->putCharactersCharacterIdCalendarEventId($character_id, $event_id, $response, $datasource, $token);
 } catch (Exception $e) {
     echo 'Exception when calling CalendarApi->putCharactersCharacterIdCalendarEventId: ', $e->getMessage(), PHP_EOL;
 }
@@ -231,10 +232,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](../Model/object.md)| The response value to set, overriding current value |
  **character_id** | **int**| An EVE character ID |
  **event_id** | **int**| The ID of the event requested |
- **datasource** | **string**| The server name you would like data from | [optional]
+ **response** | [**\EsiClient\EsiClient\Model\PutCharactersCharacterIdCalendarEventIdResponse**](../Model/PutCharactersCharacterIdCalendarEventIdResponse.md)| The response value to set, overriding current value |
+ **datasource** | **string**| The server name you would like data from | [optional] [default to tranquility]
  **token** | **string**| Access token to use if unable to set a header | [optional]
 
 ### Return type
